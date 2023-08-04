@@ -55,7 +55,7 @@ public final class Main extends Plugin implements Listener {
                 ArrayList<String> servers = new ArrayList<>();
                 e.setCancelled(true);
                 for(ServiceInfoSnapshot s : CloudNetDriver.getInstance().getCloudServiceProvider().getCloudServices(task.getName())) {
-                    if(!s.getProperty(BridgeServiceProperty.IS_STARTING).orElse(true) && !s.getProperty(BridgeServiceProperty.IS_FULL).orElse(true) && !s.getProperty(BridgeServiceProperty.IS_IN_GAME).orElse(true) && !s.getName().equalsIgnoreCase(e.getPlayer().getServer().getInfo().getName())) {
+                    if(!s.getProperty(BridgeServiceProperty.IS_STARTING).orElse(true) && !s.getProperty(BridgeServiceProperty.IS_FULL).orElse(true) && !s.getProperty(BridgeServiceProperty.IS_IN_GAME).orElse(true) && !s.getName().equalsIgnoreCase(e.getPlayer().getServer().getInfo().getName()) && !s.getProperty(BridgeServiceProperty.MOTD).orElse("Error").equalsIgnoreCase("INGAME")) {
                         servers.add(s.getName());
                         found = true;
                     }
